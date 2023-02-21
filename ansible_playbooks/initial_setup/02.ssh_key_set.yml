@@ -1,0 +1,21 @@
+- hosts : all
+  gather_facts: yes
+  become: yes
+  become_user: ambari
+  become_method: su
+
+  tasks :
+  - name: ssh-keygen
+    raw: mkdir -p /home/ambari/.ssh ; /bin/ssh-keygen -f /home/ambari/.ssh/id_rsa -q -N '' <<< y > /dev/null
+
+  - name : ssh-key copy shell upload
+    copy:
+     src: sshcopy.sh
+     dest: /home/hadoop
+     owner: hadoop
+     group: hadoop
+     mode: 0644
+     backup: no
+
+  - name: ssh-key-copy shell excute
+    command: sshcopy.sh
