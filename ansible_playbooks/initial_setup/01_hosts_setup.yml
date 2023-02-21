@@ -1,0 +1,15 @@
+- hosts : ${ansible_hostgroup}
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: su
+
+  tasks :
+  - name: hosts upload
+    copy:
+        src: hosts_file
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: 0644
+        backup: no
