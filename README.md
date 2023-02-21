@@ -18,6 +18,8 @@
 
 - S/W Version
 
+  CentOS: 7.6
+
   Java: 1.8.0
 
   Ansible: 2.8.0
