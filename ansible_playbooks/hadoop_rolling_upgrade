@@ -1,0 +1,44 @@
+- hosts : ${ansible_hostgroup}
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: su
+
+  tasks :
+   - name: hadoop-3.2.4 upload
+     copy:
+        src: /local/platform/ansible/playbook/vanilla_hadoop/hadoop_rollup/hadoop-3.2.4.tar
+        dest: /local/platform/
+        owner: hadoop
+        group: hadoop
+        mode: 0644
+        backup: no
+
+   - name: tar unzip
+     unarchive:
+        src: /local/platform/hadoop-3.2.4.tar
+        dest: /local/platform/
+        remote_src: yes
+
+   - name: Unlink symbolic link
+     file:
+        path: /local/HADOOP
+        state: absent
+
+   - name: Create symbolic link
+     file:
+        src: /local/platform/hadoop-3.2.4
+        dest: /local/HADOOP
+        owner: hadoop
+        group: hadoop
+        state: link
+
+#   - name : bash_profile upload
+#     copy:
+#        src: /local/platform/ansible/playbook/ambari/.bash_profile
+#        dest: /home/ambari/
+#        owner: ambari
+#        group: ambari
+#        mode: 0644
+#        backup: no
+
