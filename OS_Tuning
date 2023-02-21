@@ -2,4 +2,4 @@
 2. sysctl.conf
 3. limits.conf
 4. THP Disable
-5. 
+5. rc.local
