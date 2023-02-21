@@ -1,0 +1,76 @@
+- hosts : ${ansible_hostgroup}
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: su
+  serial: 1
+
+  tasks :
+
+   - name : nodemanager_stop upload
+     copy:
+      src: ${PATH}nodemanager_stop.sh
+      dest: /home/hadoop
+      owner: hadoop
+      group: hadoop
+      mode: 0644
+      backup: no
+
+   - name: nodemanager_stop sh
+     ignore_errors: yes
+     command: /bin/sh /home/hadoop/nodemanager_stop.sh
+
+
+   - name : dn_stop shell upload
+     copy:
+      src: ${PATH}dn_stop.sh
+      dest: /home/hadoop
+      owner: hadoop
+      group: hadoop
+      mode: 0644
+      backup: no
+
+   - name: datanode_stop sh
+     ignore_errors: yes
+     command: /bin/sh /home/hadoop/dn_stop.sh
+
+
+   - name: Unlink symbolic link
+     file:
+        path: /local/HADOOP
+        state: absent
+
+   - name: Create symbolic link
+     file:
+        src: ${PATH}hadoop-3.2.4
+        dest: /local/HADOOP
+        owner: hadoop
+        group: hadoop
+        state: link
+
+   - name : nodemanager_start upload
+     copy:
+      src: ${PATH}nodemanager_start.sh
+      dest: /home/hadoop
+      owner: hadoop
+      group: hadoop
+      mode: 0644
+      backup: no
+
+   - name: nodemanager_start sh
+     ignore_errors: yes
+     command: /bin/sh /home/hadoop/nodemanager_start.sh
+
+   - name : dn_start shell upload
+     copy:
+      src: ${PATH}dn_start.sh
+      dest: /home/hadoop
+      owner: hadoop
+      group: hadoop
+      mode: 0644
+      backup: no
+
+   - name: datanode_start sh
+     ignore_errors: yes
+     command: /bin/sh /home/hadoop/dn_start.sh
+
