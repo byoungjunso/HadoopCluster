@@ -4,7 +4,7 @@
   |SWITCH|10Gb Switch#1|10Gb Switch#2|10Gb Switch#3|10Gb Switch#4|
   |:------:|:-------------:|:-------------:|:-------------:|:-------------:|
   |HOST|Master#1|Master#2|Master#3|Master#4|
-  |ZOOKEEPER|O|O|O||
+  |ZOOKEEPER|ZN#1|ZN#2|ZN#3||
   |HDFS|NN#1||NN#2||
   ||ZKFC#1||ZKFC#2||
   ||JN#1|JN#2|JN#3||
@@ -17,12 +17,19 @@
   |||||SPARK Master|
 
 - S/W Version
+
   Java: 1.8.0
+
   Ansible: 2.8.0
+
   Apache Hadoop: 3.2.4
+
   Zookeeper: 3.5.9
+
   Mysql: 5.7.53
+  
   Hive: 3.1.2
+
   Tez: 0.9.1
   
 - H/W Spec
