@@ -1,0 +1,5 @@
+1. 20-nproc ## for CentOS 7.x 
+2. sysctl.conf
+3. limits.conf
+4. THP Disable
+5. 
