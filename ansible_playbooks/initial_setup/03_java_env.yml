@@ -1,0 +1,37 @@
+- hosts : ${ansible_hostsgroup}
+  gather_facts: yes
+  become: yes
+  become_user: root
+  become_method: su
+
+  tasks :
+   - name: platform java Directory Create
+     file:
+        path: jdk1.8.0_191
+        state: directory
+        owner: hadoop
+        group: hadoop
+        mode: 0775
+
+   - name: jdk upload
+     copy:
+        src: java_1.8.tar
+        dest: jdk1.8.0_191
+        owner: hadoop
+        group: hadoop
+        mode: 0644
+        backup: no
+
+   - name: jdk unzip
+     unarchive:
+        src: java_1.8.tar
+        dest: jdk1.8.0_191
+        remote_src: yes
+
+   - name: Create symbolic link
+     file:
+        src: jdk1.8.0_191
+        dest: JAVA
+        owner: hadoop
+        group: hadoop
+        state: link
