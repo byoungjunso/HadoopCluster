@@ -1,5 +1,7 @@
-# HadoopCluster
-
+  # HadoopCluster
+- 수행 프로젝트
+    - Hadoop 2.7.x -> Ambari Hadoop 3.1.x Upgrade 프로젝트
+    - Ambari Hadoop 3.1.x -> Apache Hadoop 3.2.4 전환 프로젝트
 - Architecture
   |SWITCH|10Gb Switch#1|10Gb Switch#2|10Gb Switch#3|10Gb Switch#4|
   |:------:|:-------------:|:-------------:|:-------------:|:-------------:|
@@ -17,35 +19,23 @@
   |||||SPARK Master|
 
 - S/W Version
-
-  CentOS: 7.6
-
-  Java: 1.8.0
-
-  Ansible: 2.8.0
-
-  Apache Hadoop: 3.2.4
-
-  Zookeeper: 3.5.9
-
-  Mysql: 5.7.53
-  
-  Hive: 3.1.2
-
-  Tez: 0.9.1
+    - CentOS: 7.6
+    - Java: 1.8.0
+    - Ansible: 2.8.0
+    - Apache Hadoop: 3.2.4
+    - Zookeeper: 3.5.9
+    - Mysql: 5.7.53
+    - Hive: 3.1.2
+    - Tez: 0.9.1
   
 - H/W Spec
-  
-  RACK: 50 ## rack-awareness.py 적용
-  
-  Server: 660 ea
-  
-  CPU: 80 / 48 / 32 Core = 25,440
-  
-  Memory: 168 TB
+    - RACK: 50 ## rack-awareness.py 적용
+    - Server: 660 ea
+    - CPU: 80 / 48 / 32 Core = 25,440
+    - Memory: 168 TB
   
  - 일 단위 데이터 적재량
-   35 TB / 380억 record
+    - 35 TB / 380억 record
   
   
   
