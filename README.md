@@ -1,4 +1,4 @@
-  # HadoopCluster
+  # 대용량 하둡 플랫폼 설계 및 구축
 - Cloudera Ambari Hadoop 구축
     - Erasure Coding(RS-6-3-1024K) 정책 적용
     - Cross realm authentication 적용으로 HDFS 클러스터간 데이터 교환 보안 강화
