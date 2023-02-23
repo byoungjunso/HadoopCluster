@@ -12,7 +12,7 @@
     - Hadoop 모니터링 환경 개발
       + Volume Fail 알람 개발
       + Process Down 알람 개발
-      + Long Batch 알람 개발
+      + Long elapsed time Job 알람 개발
 - Architecture
   |SWITCH|10Gb Switch#1|10Gb Switch#2|10Gb Switch#3|10Gb Switch#4|
   |:------:|:-------------:|:-------------:|:-------------:|:-------------:|
